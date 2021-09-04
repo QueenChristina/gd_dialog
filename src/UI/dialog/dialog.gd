@@ -121,6 +121,7 @@ func continue_dialog():
 				# - (A) We can move to next text_index 
 				text_dialog.bbcode_text = curr_dialog_node.printable_text
 				text_dialog.visible_characters = 0
+				next_icon.hide()
 				resize_control_nodes()
 			else:
 				if curr_dialog_node.choices.size() == 0:

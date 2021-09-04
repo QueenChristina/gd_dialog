@@ -6,15 +6,15 @@
 [ext_resource path="res://UI/UI.gd" type="Script" id=4]
 [ext_resource path="res://UI/YellowTheme.tres" type="Theme" id=5]
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.941176, 0.905882, 0.839216, 1 )
 border_color = Color( 1, 0.247059, 0.247059, 1 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.941176, 0.905882, 0.839216, 1 )
 border_color = Color( 1, 0.337255, 0.337255, 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -25,13 +25,13 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 0.737255, 0.564706, 1 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -60,7 +60,7 @@ margin_bottom = 29.0
 [node name="NameBox" parent="DialogSmall/HBox" index="0"]
 margin_right = 64.0
 margin_bottom = 29.0
-custom_styles/panel = SubResource( 10 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="DialogSmall/HBox/NameBox" index="0"]
 margin_right = 64.0
@@ -100,7 +100,7 @@ margin_bottom = 29.0
 margin_top = 33.0
 margin_right = 540.0
 margin_bottom = 168.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogSmall/TextBox" index="0"]
 margin_right = 540.0
@@ -131,7 +131,7 @@ margin_right = 525.0
 margin_bottom = 120.0
 
 [node name="PanelContainer" parent="DialogSmall/TextBox/Margin/HBox" index="0"]
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 3 )
 
 [node name="Icon" parent="DialogSmall/TextBox/Margin/HBox/PanelContainer" index="0"]
 frame = 1
@@ -167,13 +167,13 @@ position = Vector2( 0, -0.0314167 )
 visible = false
 
 [node name="NameBox" parent="DialogBlack/HBox" index="0"]
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="TextBox" parent="DialogBlack" index="3"]
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 5 )
 
 [node name="PanelContainer" parent="DialogBlack/TextBox/Margin/HBox" index="0"]
-custom_styles/panel = SubResource( 15 )
+custom_styles/panel = SubResource( 6 )
 
 [node name="Icon" parent="DialogBlack/TextBox/Margin/HBox/PanelContainer" index="0"]
 frame = 1

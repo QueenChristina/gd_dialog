@@ -5,7 +5,7 @@
 [ext_resource path="res://UI/YellowTheme.tres" type="Theme" id=3]
 [ext_resource path="res://UI/GetPlayerName.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=1]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Blackout:color")
 tracks/0/interp = 1
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Blackout:color")
 tracks/0/interp = 1
@@ -33,7 +33,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Blackout:color")
 tracks/0/interp = 1
@@ -124,9 +124,9 @@ theme = ExtResource( 3 )
 text = "Submit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dark = SubResource( 12 )
-anims/FadeIn = SubResource( 13 )
-anims/FadeOut = SubResource( 14 )
+anims/Dark = SubResource( 1 )
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
 
 [connection signal="submitted_player_name" from="UI/SetName/HBox" to="." method="_on_submitted_player_name"]
 [connection signal="text_entered" from="UI/SetName/HBox/PlayerName" to="UI/SetName/HBox" method="_on_submit_name"]

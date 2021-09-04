@@ -1,18 +1,21 @@
 # Godot Dialog System
 Open source robust dialogue system in Godot, with an in game example.
 
+
 ## Features
 Robust dialog system
 * Branching dialog
     * Show dialog depending on previous choices
 * Conditional dialog
     * Show dialog and choices depending on in-game variables
+	* Display custom variables in dialog text using special characters
 * Execute actions with dialog
-    * Easily shake screen, add and remove items from player inventory, , and so on, all from the comfort of a single .json file
+    * Easily shake screen, add and remove items from player inventory, and so on, all from the comfort of a single .json file
+	* Emit signals as needed to play animations, sounds, and anything else you think would be necessary during dialog
 * Easily customizable
     * Use of control nodes makes it easy to re-size, and use themes or textures of your choice to change the style of dialog
     * Possible to use different styles of dialog depending on the speaker
-* Beautiful sound and voice
+* Beautiful sound and voice 🔈
     * Separate voices database allows you to easily change voice per dialog
         * Typewriter style sound with simple modifications allows for a wide variety of sound with little effort
     * Button sounds are satisfying and responsive
@@ -26,7 +29,9 @@ Robust dialog system
 Includes an example of how the dialog system might work with a top-down RPG. However, it is easily used for other styles of games as well with minor to no modification, eg. visual novels, etc.
 
 ## Getting Started
-You add dialog to your game via .json file.
+Navigate to `UI\dialog\dialog.tscn` to see how the dialog system works.
+
+You add dialog to your game via .json file, currently stored in `Data\Dialogue.json`.
 
 Three examples of adding dialog to your game:
 ```
@@ -56,7 +61,7 @@ Three examples of adding dialog to your game:
 	},
 ```
 
-You can also create custom dialog in-game by creating dialog text in the format specified above and adding it to `db_dialog`, a database of all dialogs. This will allow for easier creation of dynamic text that might display in-game variables.
+You can also create custom dialog in-game by creating dialog text in the format specified above and adding it to `db_dialog`, a database of all dialogs. This will allow for easier creation of dynamic text that might display in-game variables, but will need some set-up to generate the entry.
 
 You can add in commonly used variables in dialog using reserved special characters. For instance, if the player name is John Smith:
 ```
@@ -78,11 +83,26 @@ will add pauses where the reserved special character `|`.
 
 Code is easily modifiable to change reserved character, and to add more special characters with custom behaviors.
 
-## License
+## FAQ
+### ❓ Why are you editing dialog via a .json file?
+I find .json the fastest to edit and manipulate, since it's basically a text file. No need for graph nodes or other visual UI that gets cluttered when the game grows large.
+
+However, it is admittedly error-prone if you mistype something. Adding error-checking is something I plan on doing in the future.
+
+### ❓ Why did you show source code for a top-down RPG, rather than just the dialog system?
+I wanted to show an example of how the dialog system may be used as part of a game, and how well it can integrate into game mechanics. It's easy to find open source dialog systems for Godot that shows you how to display text. The hard part is how you can make the dialog integrate well into your game, and respond to in-game conditions, without requiring a whole bunch of repetitive and extra code.
+
+### ❓ Why isn't this a plugin?!?!
+Personally, I found project source files rather than plugins easier to understand and emulate when I just got started learning Godot. Plugins are also harder to fully customize/edit to your game style.
+
+If you feel a plugin would be more useful, though, please message me and I will consider making one in the future if enough people are interested.
+
+## License 📃 
 The project is licensed under MIT license. Please feel free to use for your games, whether commercial or non-commercial! Just be sure to credit me!
 
 ```
 Dialog system by Qin Tina
+> Github (https://github.com/QueenChristina)
 > Twitter
 > Youtube
 ```
@@ -92,10 +112,12 @@ Exceptions:
     * The music is made by [Joshua McLean](https://joshua-mclean.itch.io), licensed under Creative Commons Attribution 4.0 International
 
 ## Acknowledgements
-* [Dialogic](https://github.com/coppolaemilio/dialogic) (my personal favorite)
-* 
+* [Dialogic](https://github.com/coppolaemilio/dialogic) 
+	* My personal favorite, the most complete open source Godot dialog-system plugin out there. You can create and edit dialog from within the engine itself.
+* [Game Endeavor](https://www.youtube.com/watch?v=Qh3U2cbH8DM&t=107s)
+	* Insight into how Game Endeaver implemented their dialog system gave me insight into how I might execute actions during dialog.
 
-## Support Me
+## Support Me ❤️
 If you liked this project, or felt this was useful, please leave me a comment and feedback! It would really make my day.
 
 And, if you ever make a game with this, I'd love a know! Please send me a link of your game so I can support it! <3
