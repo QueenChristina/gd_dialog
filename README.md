@@ -1,6 +1,7 @@
 # Godot Dialog System
 Open source robust dialogue system in Godot, with an in game example.
 
+[![Watch full video demo](pics/TweetyTalks.gif "Example conversation with Tweety. Click for full video demo with sound.")](https://www.youtube.com/watch?v=On1x586NZtM)
 
 ## Features
 Robust dialog system
@@ -20,6 +21,7 @@ Robust dialog system
         * Typewriter style sound with simple modifications allows for a wide variety of sound with little effort
     * Button sounds are satisfying and responsive
 * Animated character icons
+* Uses RichText - compatable with BBCode for fun text styles
 * Keyboard accessible
     * All dialog actions are navigatable by keyboard - no mouse needed!
 * Scalable
@@ -37,8 +39,8 @@ Three examples of adding dialog to your game:
 ```
 "robust_text_id" : {
 	"name": "Qin Tina", 
-	"icon": "God_png", 
-	"voice": "manly",
+	"icon": "most_beautiful_being", 
+	"voice": "sparkly",
 	"text": ["This is the most feature-rich dialog with choices you can make.",
                "Don't you think this is so cool?!?"], 
 	"choices": [ 
