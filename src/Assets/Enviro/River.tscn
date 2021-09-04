@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Enviro/River.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 598, 156 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 598, 0, 598, 156 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="River" type="StaticBody2D"]
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320.638, 389.56 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -2.32706, -310.892 )
+polygon = PoolVector2Array( 2.05528, 327.984, 61.2064, 316.716, 109.942, 319.895, 209.531, 345.852, 256.148, 342.144, 338.786, 325.722, 396.526, 327.311, 465.132, 338.998, 521.841, 338.146, 569.412, 331.403, 600.11, 328.778, 599.596, 451.268, 591.73, 451.643, 517.573, 458.863, 426.176, 448.375, 345.268, 440.134, 301.817, 443.88, 231.397, 462.609, 195.437, 461.11, 119.773, 443.131, 76.2177, 433.665, 50.7906, 436.579, 1.26068, 452.471 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+playing = true
+centered = false

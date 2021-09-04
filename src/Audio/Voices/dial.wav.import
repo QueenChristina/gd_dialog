@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dial.wav-b6cd7fb712e1552f34a7e360e3aea07e.sample"
+
+[deps]
+
+source_file="res://Audio/Voices/dial.wav"
+dest_files=[ "res://.import/dial.wav-b6cd7fb712e1552f34a7e360e3aea07e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Items/TalkableItem.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Actors/BunnyBody.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Actors/BunnyHead.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Actors/BunnyFloof.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Floot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 72.4647, 11.5826 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 75.2486, 14.3526 )
+
+[node name="Bunny" type="StaticBody2D"]
+script = ExtResource( 2 )
+talk_id = "bunny_quest"
+
+[node name="Sprite" type="Node2D" parent="."]
+position = Vector2( 0, -45 )
+
+[node name="Body" type="Sprite" parent="Sprite"]
+texture = ExtResource( 3 )
+
+[node name="Head" type="Sprite" parent="Sprite"]
+position = Vector2( 0, 1.55257 )
+texture = ExtResource( 4 )
+
+[node name="Floot" type="Sprite" parent="Sprite"]
+position = Vector2( 0, -1.55257 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+autoplay = "Idle"
+anims/Idle = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.75415, -13.8513 )
+shape = SubResource( 2 )
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+position = Vector2( 0, 10.1197 )
+shape = SubResource( 3 )
+
+[connection signal="body_shape_entered" from="Interact" to="." method="_on_Interact_body_shape_entered"]
+[connection signal="body_shape_exited" from="Interact" to="." method="_on_Interact_body_shape_exited"]

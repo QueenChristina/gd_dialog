@@ -1,0 +1,325 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://UI/Handwrittenrpg-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Handwrittenrpg-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/TransTheme.tres" type="Theme" id=3]
+[ext_resource path="res://UI/dialog/dialog.gd" type="Script" id=4]
+[ext_resource path="res://UI/dialog/dialog_node.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Actors/TestIcon.png" type="Texture" id=6]
+[ext_resource path="res://UI/TextBox.png" type="Texture" id=7]
+[ext_resource path="res://UI/dialog/spacer_container.gd" type="Script" id=8]
+[ext_resource path="res://UI/dialog/animated_sprite_container.gd" type="Script" id=9]
+[ext_resource path="res://UI/dialog/dialog_choices.gd" type="Script" id=10]
+[ext_resource path="res://UI/dialog/dialog_voice.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Actors/BunnyIcon.png" type="Texture" id=12]
+[ext_resource path="res://Audio/SFX/boop.wav" type="AudioStream" id=13]
+[ext_resource path="res://UI/dialog/ButtonSound.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Actors/BirdIcon.png" type="Texture" id=15]
+[ext_resource path="res://UI/dialog/Next.png" type="Texture" id=16]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 965, 191 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 965, 191 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+bg_color = Color( 0.92549, 0.627451, 0.627451, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.890196, 0.286275, 0.286275, 1 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 15 )
+region = Rect2( 122, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 15 )
+region = Rect2( 244, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 15 )
+region = Rect2( 366, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 15 )
+region = Rect2( 488, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 15 )
+region = Rect2( 610, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 15 )
+region = Rect2( 732, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 15 )
+region = Rect2( 854, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 82, 112 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 12 )
+region = Rect2( 82, 0, 82, 112 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 12 )
+region = Rect2( 164, 0, 82, 112 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 12 )
+region = Rect2( 246, 0, 82, 112 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "bird",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "bunny_default",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "bunny_closed_eyes",
+"speed": 4.0
+} ]
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+outline_size = 2
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=19]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Dialog" type="VBoxContainer"]
+margin_left = 50.0803
+margin_top = 163.524
+margin_right = 604.08
+margin_bottom = 347.524
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource( 3 )
+alignment = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="DialogNode" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.03
+
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_right = 553.0
+margin_bottom = 35.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameBox" type="PanelContainer" parent="HBox"]
+margin_right = 74.0
+margin_bottom = 35.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="HBox/NameBox"]
+margin_right = 74.0
+margin_bottom = 35.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="HBox/NameBox/Margin"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 64.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.490196, 0, 0, 1 )
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="HBox"]
+margin_left = 78.0
+margin_right = 78.0
+margin_bottom = 35.0
+script = ExtResource( 8 )
+node = NodePath("../NameBox")
+
+[node name="TextBox" type="PanelContainer" parent="."]
+margin_top = 39.0
+margin_right = 553.0
+margin_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="TextBox"]
+margin_right = 553.0
+margin_bottom = 145.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="HBox" type="HBoxContainer" parent="TextBox/Margin"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 533.0
+margin_bottom = 125.0
+custom_constants/separation = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="TextBox/Margin/HBox"]
+margin_right = 90.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 90, 105 )
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="AnimatedSprite" parent="TextBox/Margin/HBox/PanelContainer"]
+position = Vector2( 45, 55 )
+frames = SubResource( 4 )
+animation = "bunny_closed_eyes"
+playing = true
+
+[node name="Node2D" type="Node2D" parent="TextBox/Margin/HBox/PanelContainer"]
+position = Vector2( 47.1434, 104.389 )
+
+[node name="VBox" type="VBoxContainer" parent="TextBox/Margin/HBox"]
+margin_left = 115.0
+margin_right = 513.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Text" type="RichTextLabel" parent="TextBox/Margin/HBox/VBox"]
+margin_right = 398.0
+margin_bottom = 69.0
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/mono_font = SubResource( 5 )
+custom_fonts/bold_italics_font = SubResource( 6 )
+custom_colors/default_color = Color( 0.568627, 0, 0.235294, 1 )
+bbcode_enabled = true
+bbcode_text = "Dialogue text goes here."
+text = "Dialogue text goes here."
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choices" type="HBoxContainer" parent="TextBox/Margin/HBox/VBox"]
+margin_top = 73.0
+margin_right = 398.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+alignment = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="TextBox/Margin/HBox/VBox/Choices"]
+margin_right = 398.0
+margin_bottom = 32.0
+grow_vertical = 0
+size_flags_horizontal = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="TextBox/Margin/HBox/VBox/Choices/VBox"]
+margin_right = 398.0
+margin_bottom = 32.0
+text = "Make a choice button."
+
+[node name="NextIcon" type="Node2D" parent="."]
+position = Vector2( 516.978, 158.834 )
+z_index = 1
+
+[node name="Next" type="Sprite" parent="NextIcon"]
+position = Vector2( 0, -2.25304 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NextIcon/Next"]
+autoplay = "Idle"
+anims/Idle = SubResource( 19 )
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -5.0
+script = ExtResource( 14 )
+
+[node name="Sound" parent="." instance=ExtResource( 11 )]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="." method="_on_choice_selected"]
+[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="ButtonSound" method="_on_choice_selected"]

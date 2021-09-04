@@ -1,0 +1,14 @@
+{
+"default" : {"rate": 4, "pitch": 1, "pitch_range": 0.2},
+
+"NPC_default": {"rate": 3, "pitch": 1.5, "pitch_range": 0.25},
+
+"narrator" : {"rate" : 4, "pitch": 1.5, "pitch_range" : 0.2 },
+
+"item": {"rate": 3, "sound" : "robot", "pitch": 1, "pitch_range": 0.25},
+
+"bunny" : {"rate" : 4, "sound" : "doop", "pitch": 1, "pitch_range" : 0.2 },
+
+"bird" : {"rate" : 4, "sound" : "chirp", "pitch": 1, "pitch_range" : 0.2 },
+
+}

@@ -1,0 +1,188 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UI/dialog/dialog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/menu/Menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/YellowBox.png" type="Texture" id=3]
+[ext_resource path="res://UI/UI.gd" type="Script" id=4]
+[ext_resource path="res://UI/YellowTheme.tres" type="Theme" id=5]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.941176, 0.905882, 0.839216, 1 )
+border_color = Color( 1, 0.247059, 0.247059, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.941176, 0.905882, 0.839216, 1 )
+border_color = Color( 1, 0.337255, 0.337255, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+bg_color = Color( 0.984314, 0.839216, 0.690196, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 0.737255, 0.564706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="UI" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 4 )
+
+[node name="DialogSmall" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -270.0
+margin_top = -168.0
+margin_right = 270.0
+margin_bottom = 0.0
+theme = ExtResource( 5 )
+
+[node name="HBox" parent="DialogSmall" index="2"]
+margin_right = 540.0
+margin_bottom = 29.0
+
+[node name="NameBox" parent="DialogSmall/HBox" index="0"]
+margin_right = 64.0
+margin_bottom = 29.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="DialogSmall/HBox/NameBox" index="0"]
+margin_right = 64.0
+margin_bottom = 29.0
+texture = ExtResource( 3 )
+patch_margin_left = 5
+patch_margin_top = 9
+patch_margin_right = 7
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" parent="DialogSmall/HBox/NameBox" index="1"]
+margin_right = 64.0
+margin_bottom = 29.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 2
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 2
+
+[node name="Name" parent="DialogSmall/HBox/NameBox/Margin" index="0"]
+margin_left = 5.0
+margin_top = 2.0
+margin_right = 59.0
+margin_bottom = 27.0
+valign = 1
+
+[node name="Margin" parent="DialogSmall/HBox" index="1"]
+margin_left = 68.0
+margin_right = 68.0
+margin_bottom = 29.0
+
+[node name="TextBox" parent="DialogSmall" index="3"]
+margin_top = 33.0
+margin_right = 540.0
+margin_bottom = 168.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogSmall/TextBox" index="0"]
+margin_right = 540.0
+margin_bottom = 135.0
+texture = ExtResource( 3 )
+patch_margin_left = 5
+patch_margin_top = 9
+patch_margin_right = 7
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" parent="DialogSmall/TextBox" index="1"]
+margin_right = 540.0
+margin_bottom = 135.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="HBox" parent="DialogSmall/TextBox/Margin" index="0"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 525.0
+margin_bottom = 120.0
+
+[node name="PanelContainer" parent="DialogSmall/TextBox/Margin/HBox" index="0"]
+custom_styles/panel = SubResource( 12 )
+
+[node name="Icon" parent="DialogSmall/TextBox/Margin/HBox/PanelContainer" index="0"]
+frame = 1
+
+[node name="VBox" parent="DialogSmall/TextBox/Margin/HBox" index="1"]
+margin_right = 510.0
+
+[node name="Text" parent="DialogSmall/TextBox/Margin/HBox/VBox" index="0"]
+margin_right = 395.0
+margin_bottom = 76.0
+
+[node name="Choices" parent="DialogSmall/TextBox/Margin/HBox/VBox" index="1"]
+margin_top = 80.0
+margin_right = 395.0
+
+[node name="VBox" parent="DialogSmall/TextBox/Margin/HBox/VBox/Choices" index="0"]
+margin_right = 395.0
+margin_bottom = 25.0
+
+[node name="Button" parent="DialogSmall/TextBox/Margin/HBox/VBox/Choices/VBox" index="0"]
+margin_right = 395.0
+margin_bottom = 25.0
+
+[node name="NextIcon" parent="DialogSmall" index="4"]
+position = Vector2( 506.934, 146.371 )
+
+[node name="Next" parent="DialogSmall/NextIcon" index="0"]
+position = Vector2( 0, -0.0314167 )
+
+[node name="Node" type="Node" parent="DialogSmall"]
+
+[node name="DialogBlack" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="NameBox" parent="DialogBlack/HBox" index="0"]
+custom_styles/panel = SubResource( 13 )
+
+[node name="TextBox" parent="DialogBlack" index="3"]
+custom_styles/panel = SubResource( 14 )
+
+[node name="PanelContainer" parent="DialogBlack/TextBox/Margin/HBox" index="0"]
+custom_styles/panel = SubResource( 15 )
+
+[node name="Icon" parent="DialogBlack/TextBox/Margin/HBox/PanelContainer" index="0"]
+frame = 1
+
+[node name="Menu" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[connection signal="dialog_ended" from="DialogSmall" to="." method="_on_dialog_ended"]
+[connection signal="dialog_ended" from="DialogBlack" to="." method="_on_dialog_ended"]
+
+[editable path="DialogSmall"]
+[editable path="DialogBlack"]

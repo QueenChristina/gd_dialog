@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Items/TalkableItem.gd" type="Script" id=1]
+
+[node name="TalkableItem" type="StaticBody2D"]
+script = ExtResource( 1 )
+talk_id = "bunny_quest"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+position = Vector2( 0, 16 )
+
+[connection signal="body_shape_entered" from="Interact" to="." method="_on_Interact_body_shape_entered"]
+[connection signal="body_shape_exited" from="Interact" to="." method="_on_Interact_body_shape_exited"]

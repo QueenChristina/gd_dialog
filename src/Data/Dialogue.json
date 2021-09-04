@@ -1,0 +1,131 @@
+{
+"id" : {
+	"name": "", 
+	"icon": "", 
+	"voice": "",
+	"text": [""], 
+	"choices": [ 
+			{"text" : "", "next" : "", "action": [], "show_only_if": ""},
+			{"text" : "", "next" : "", "action": [], "show_only_if": ""}
+		],
+	"action" : [],
+	"next": [{"id": "", "if": ""}, {"id": "", "if": ""}, "default_id"],
+	},
+
+"": {
+	"name": "",
+	"icon": "none",
+	"voice" : "default",
+	"text" : ["ERROR. You may have set an incorrect text id."],
+	"choices" : [],
+	"action" : [],
+	"next": "end"
+	},
+
+"minimal_example": {
+	"text": ["This minimal text dialog node uses default values, and will end shortly."]
+	},
+
+"superfluous_example": {
+	"name": "Name",
+	"icon": "Must match icon animation name",
+	"voice" : "default",
+	"text": ["Required value."], 
+	"choices": [
+		{"text" : "Yes.", "next" : "end", "action": ["play_anim anim_name", "set variable str_value"], "show_only_if": "data var_key equal str_value" }, 
+		{"text" : "Yes.", "next" : "not end id", "show_only_if": "data var_key not_equal str_value", "self_comment": "janky way to say: different next id by choice depending on condition" }, 
+		{"text" : "You haven't talked to me before.", "next" : "end", "action": ["set has_talked true"]},
+		{"text" : "I see you've talked to me before.", "next": "end", "show_only_if" : "data has_talked is true"},
+		{"text" : "No.", "next" : "end"},
+		], 
+	"action": ["set has_text_talked true"],
+	"next": [{"id": "end", "if": "data key equal value"}, {"id": "other_id", "if": "player coins greater 155"}, "default_id, must always be last and a string"],
+	},
+
+"welcome": {
+	"text": ["Welcome, [rainbow freq=0.2 sat=10 val=20][wave amp=50 freq=2]&[/wave][/rainbow]."], 
+	"next": "end"
+	},
+
+"cross_styx": { 
+	"text": ["Hello, sir! Would you like to cross the river?"], 
+	"choices": [
+		{"text" : "Yes.", "next" : "end", "action": ["play_anim cross_river", "play_sound swish"] }, 
+		{"text" : "No.", "next" : "end", "action": ["set has_river_talked true"]},
+		{"text" : "Wait. You're a talking boat?", "next": "styx_talked", "show_only_if" : "data has_river_talked is true"}
+		],
+	},
+
+"styx_talked": {
+	"text": ["Yes,| &,| indeed...| I am."],
+	},
+
+"crossed_styx": {
+		"text": ["Sorry, buddy, I'm a one-way boat."], 
+		"next": ["end"]
+	},
+
+"bunny_quest" : {
+	"name": "Moon Bunny", 
+	"icon": "bunny_default", 
+	"voice": "bunny",
+	"text": ["Boy, have you got my mochi?"], 
+	"choices": [ 
+			{"text" : "No", "next" : "bunny_quest_not_done", "show_only_if": "player inventory does_not_have mochi"},
+			{"text" : "Yes", "next" : "bunny_quest_done", "action": ["player inventory remove 1 mochi"], "show_only_if": "player inventory has mochi"}
+		],
+	},
+
+"bunny_quest_not_done" : {
+	"name": "Moon Bunny", 
+	"icon": "bunny_closed_eyes", 
+	"voice": "bunny",
+	"text": ["Don't keep me waiting, boy."], 
+	"next": "end"
+},
+
+"bunny_quest_done" : {
+	"name": "Moon Bunny", 
+	"icon": "bunny_default", 
+	"voice": "bunny",
+	"text": ["Wonderful!"],
+	"next": "end"
+},
+
+"pickup_mochi": {
+	"voice" : "item",
+	"text" : ["You picked up a mochi!"],
+	"action" : ["player inventory add 1 mochi", "play_sound item_pickup"]
+},
+
+"tweet": {
+	"name" : "Tweety",
+	"voice" : "bird",
+	"icon" : "bird",
+	"text" : ["Hey yo! Have you heard about the new tweet?"],
+	"choices": [ 	
+		{"text" : "No. Tell me more.", "next" : "tweet_joke"},
+		{"text" : "Yes, no need to say anymore.", "next" : "tweet_no_joke"},
+	],
+	"action" : ["screen shake"]
+},
+
+"tweet_no_joke" : {
+	"name" : "Tweety",
+	"voice" : "bird",
+	"icon" : "bird",
+	"text" : ["Aw c'mon man, I was just try'n to make a joke. Play along, you big ol' sop."],
+},
+
+"tweet_joke" : {
+	"name" : "Tweety",
+	"voice" : "bird",
+	"icon" : "bird",
+	"text" : ["Well, they just couldn't stop tweeting! | \n [shake rate=5 level=10] HAHA!! | HAHA!![/shake]", "Well? Did you like it?"],
+	"choices": [ 
+		{"text" : "Yes! Tell me more.", "next" : "tweet"},
+		{"text" : "No, I don't understand...", "next" : "tweet_no_joke"},
+	],
+	"action" : ["screen shake"],
+}
+}

@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Abyss.gd" type="Script" id=1]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/YellowTheme.tres" type="Theme" id=3]
+[ext_resource path="res://UI/GetPlayerName.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=12]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Blackout:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Blackout:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Blackout:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Abyss" type="Node"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Blackout" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
+
+[node name="SetName" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/SetName"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -89.5
+margin_top = 10.0
+margin_right = 89.5
+margin_bottom = 35.0
+theme = ExtResource( 3 )
+text = "Enter your name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="UI/SetName"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -183.5
+margin_top = -24.0
+margin_right = 183.5
+margin_bottom = 24.0
+custom_constants/separation = 30
+alignment = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="LineEdit" parent="UI/SetName/HBox"]
+margin_left = 8.0
+margin_right = 208.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 200, 0 )
+theme = ExtResource( 3 )
+text = "Bobby"
+align = 1
+placeholder_text = "Your Name"
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI/SetName/HBox"]
+margin_left = 238.0
+margin_right = 358.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 120, 0 )
+theme = ExtResource( 3 )
+text = "Submit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Dark = SubResource( 12 )
+anims/FadeIn = SubResource( 13 )
+anims/FadeOut = SubResource( 14 )
+
+[connection signal="submitted_player_name" from="UI/SetName/HBox" to="." method="_on_submitted_player_name"]
+[connection signal="text_entered" from="UI/SetName/HBox/PlayerName" to="UI/SetName/HBox" method="_on_submit_name"]
+[connection signal="pressed" from="UI/SetName/HBox/Button" to="UI/SetName/HBox" method="_on_submit_name"]

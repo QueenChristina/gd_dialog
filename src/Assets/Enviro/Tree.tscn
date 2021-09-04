@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Enviro/Tree3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Enviro/Tree1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Enviro/Tree2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Enviro/Bush.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.9241, 12.7822 )
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Type1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 7.49156, -125.245 )
+texture = ExtResource( 2 )
+
+[node name="Type2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8.24872, -121.233 )
+texture = ExtResource( 3 )
+
+[node name="Type3" type="Sprite" parent="."]
+position = Vector2( -13.0109, -123.53 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.05946, -17.4487 )
+shape = SubResource( 1 )
