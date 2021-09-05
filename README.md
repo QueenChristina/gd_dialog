@@ -1,10 +1,9 @@
 # Godot Dialog System
-Open source robust dialogue system in Godot, with an in game example.
+Open source feature-rich dialogue system in Godot, with an in game example.
 
 [![Watch full video demo](pics/TweetyTalks.gif "Example conversation with Tweety. Click for full video demo with sound.")](https://www.youtube.com/watch?v=On1x586NZtM)
 
 ## Features
-Robust dialog system
 * Branching dialog
     * Show dialog depending on previous choices
 * Conditional dialog
@@ -87,12 +86,21 @@ Code is easily modifiable to change reserved character, and to add more special 
 
 ## FAQ
 ### ❓ Why are you editing dialog via a .json file?
-I find .json the fastest to edit and manipulate, since it's basically a text file. No need for graph nodes or other visual UI that gets cluttered when the game grows large.
+I find .json the fastest to edit and manipulate, since it's basically a text file. No need for graph nodes or other visual UI that gets cluttered when the game grows large. 
 
 However, it is admittedly error-prone if you mistype something. Adding error-checking is something I plan on doing in the future.
 
+I do understand editing dialogue via something more visual would be a nice feature though. There are many great visual dialogue editors available that output .json files:
+* [BlooRabbit Dialog Plugin](https://github.com/BlooRabbit/DialogPlugin)
+* [Levrault Dialogue Editor](https://github.com/Levrault/LE-dialogue-editor)
+* [Whiskers](https://github.com/littleMouseGames/whiskers)
+
+While it may need some editing to work with my particular dialogue file, it is a good starting point. Please let me know if you would be interested in a visual editor for my dialogue system and I would be happy to look further into developing one suitable to use with this.
+
 ### ❓ Why did you show source code for a top-down RPG, rather than just the dialog system?
 I wanted to show an example of how the dialog system may be used as part of a game, and how well it can integrate into game mechanics. It's easy to find open source dialog systems for Godot that shows you how to display text. The hard part is how you can make the dialog integrate well into your game, and respond to in-game conditions, without requiring a whole bunch of repetitive and extra code.
+
+The code and files are also well separated and organized -- dialogue-system specific files are under `UI\dialog`. You are free to ignore the other code and peer into that only if you'd like.
 
 ### ❓ Why isn't this a plugin?!?!
 Personally, I found project source files rather than plugins easier to understand and emulate when I just got started learning Godot. Plugins are also harder to fully customize/edit to your game style.
@@ -113,11 +121,13 @@ Exceptions:
 * Music
     * The music is made by [Joshua McLean](https://joshua-mclean.itch.io), licensed under Creative Commons Attribution 4.0 International
 
-## Acknowledgements
+## Acknowledgements and Resources
 * [Dialogic](https://github.com/coppolaemilio/dialogic) 
 	* My personal favorite, the most complete open source Godot dialog-system plugin out there. You can create and edit dialog from within the engine itself.
 * [Game Endeavor](https://www.youtube.com/watch?v=Qh3U2cbH8DM&t=107s)
 	* Insight into how Game Endeaver implemented their dialog system gave me insight into how I might execute actions during dialog.
+* [Godot Open Dialogue by J. Sena](https://jsena42.bitbucket.io/god/)
+	* I haven't personally looked at it in-depth, but it seems to have many great features
 
 ## Support Me ❤️
 If you liked this project, or felt this was useful, please leave me a comment and feedback! It would really make my day.
