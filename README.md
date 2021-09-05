@@ -29,7 +29,7 @@ Open source feature-rich dialogue system in Godot, with an in game example.
 
 Includes an example of how the dialog system might work with a top-down RPG. However, it is easily used for other styles of games as well with minor to no modification, eg. visual novels, etc.
 
-## Getting Started
+## Getting Started with Dialog
 Navigate to `UI\dialog\dialog.tscn` to see how the dialog system works.
 
 You add dialog to your game via .json file, currently stored in `Data\Dialogue.json`.
@@ -84,6 +84,22 @@ will add pauses where the reserved special character `|`.
 
 Code is easily modifiable to change reserved character, and to add more special characters with custom behaviors.
 
+## Getting Started with Voices
+It is easy to create new typewriter-style voices yet there is a lot of nice variability in sound possible. You can make new voices using .json file:
+
+```
+"narrator" : {"rate" : 4, "pitch": 1.5, "pitch_range" : 0.2 },
+"bird" : {"rate" : 4, "sound" : "chirp", "pitch": 1, "pitch_range" : 0.2 },
+```
+
+`rate` : The rate at which a sound is played counted in sound per letters + 1, such as every letter, or every 5th letter. Bigger rates lead to less frequently played typewriter sound.
+
+`pitch` : The pitch at which to play the sound.
+
+`pitch_range`: A random ± amount in which the pitch can fluctuate. Bigger pitch range leads to more natural song-like voices while lower pitch range sound more monotonous.
+
+`sound` (optional): The sound to play in the typewriter effect, matching the name of the respective preloaded sound in the `dialogue_voice.gd` in `Dialog.tscn'. If no sound is specified, it uses a default sound.
+
 ## FAQ
 ### ❓ Why are you editing dialog via a .json file?
 I find .json the fastest to edit and manipulate, since it's basically a text file. No need for graph nodes or other visual UI that gets cluttered when the game grows large. 
@@ -91,9 +107,11 @@ I find .json the fastest to edit and manipulate, since it's basically a text fil
 However, it is admittedly error-prone if you mistype something. Adding error-checking is something I plan on doing in the future.
 
 I do understand editing dialogue via something more visual would be a nice feature though. There are many great visual dialogue editors available that output .json files:
-* [BlooRabbit Dialog Plugin](https://github.com/BlooRabbit/DialogPlugin)
+* [Dialogue Designer](https://www.gamedev.net/projects/2382-dialogue-designer/)
 * [Levrault Dialogue Editor](https://github.com/Levrault/LE-dialogue-editor)
 * [Whiskers](https://github.com/littleMouseGames/whiskers)
+
+Remember that all you really need is a .json file in the right format, so a dialogue designer for any game engine or story format that outputs to the correct format will work -- do not limit yourself to Godot.
 
 While it may need some editing to work with my particular dialogue file, it is a good starting point. Please let me know if you would be interested in a visual editor for my dialogue system and I would be happy to look further into developing one suitable to use with this.
 
