@@ -65,7 +65,11 @@ _global_script_class_icons={
 config/name="Goodnight, Eli"
 config/description="Eli listens to one more bedtime story, and drifts onto into dreams..."
 run/main_scene="res://Scenes/World.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://Assets/Actors/Eli_Red.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.941176, 0.905882, 0.839216, 1 )
+config/icon="res://Assets/Actors/Eli_Red.png"
 
 [autoload]
 

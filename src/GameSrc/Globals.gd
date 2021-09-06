@@ -37,10 +37,10 @@ func _ready():
 # TODO: add_Quest in its own key value, NOT in execute, so not all string eg. "add_quest: {"name": "kill", "amount": 5, "mon": "giant rat"} to allow for values
 # TODO: move to another, more aptly named singleton.
 func execute(act):
-	var act_parsed = act.split(" ")
-	var command = act_parsed[0]
+	var act_parsed : Array = act.split(" ")
+	var command = act_parsed[0].to_lower()
 	# First word is always the command keyword, match to pre-scripted options
-	if command == "play_anim":
+	if command == "play_anim" or command == "play_animation":
 		# Second word is the animation name to play
 		if act_parsed.size() != 2:
 			print("WARNING: action " + act + " not set appropriately. Expected two words." + \
@@ -53,8 +53,23 @@ func execute(act):
 					"Recieved " + str(act_parsed.size()))
 		emit_signal("play_sound", act_parsed[1])
 	elif command == "screen":
+		# Screen shake
 		if act_parsed[1] == "shake":
 			emit_signal("screen_shake")
+	elif command == "emit_signal":
+		# NOTE: signals MUST be defined at the top of this file and match
+		# the name of act_parsed[1] exactly to be sent successfuly.
+		# Example: emit_signal play_animation animation_name
+		# works the same as play_anim animation_name
+		if act_parsed.size() == 2:
+			emit_signal(act_parsed[1])
+		elif act_parsed.size() == 3:
+			# Emit with String arg
+			emit_signal(act_parsed[1], act_parsed[2])
+		else:
+			# Emit with array args
+			emit_signal(act_parsed[1], act_parsed.slice(2, act_parsed.size() - 1))
+		print("Emitted signal " + act_parsed[1])
 	elif command == "set":
 		# Requires three words: command key value. 
 		if act_parsed.size() != 3:
@@ -101,9 +116,9 @@ func is_condition_met(condition : String):
 		print("WARNING: condition of " + condition + " not set appropriately. Too few args.")
 	
 	# Check if condition met
-	var var_source = cond_parsed[0]
-	var variable = cond_parsed[1]
-	var operator = cond_parsed[2]
+	var var_source = cond_parsed[0].to_lower()	# to_lower to check conditionals
+	var variable = cond_parsed[1]				# Not to_lower to preserve original intention
+	var operator = cond_parsed[2].to_lower()
 	var value = cond_parsed[3]
 	if var_source == "data":
 		# Use variable keys in Globals.data dictionary

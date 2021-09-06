@@ -51,8 +51,7 @@ func set_buttons(choices):
 			button.connect("focus_entered", button_sound, "_on_choice_hovered")
 			button.connect("mouse_entered", button_sound, "_on_choice_hovered")
 	# Error checking; expect to have at least one visible choice.
-	# NOTE: I've added a button for demo purposes, which is counted as 1 but not used in-game, thus checks <= 1 and not == 0
-	if choices.size() > 0 and button_container.get_child_count() <= 1:
+	if choices.size() > 0 and button_container.get_child_count() == 0:
 		print("WARNING: No choices set. Check your conditionals.")
 
 func _on_button_pressed(next_id, action):

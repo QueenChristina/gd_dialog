@@ -37,44 +37,44 @@ border_width_bottom = 5
 border_color = Color( 0.890196, 0.286275, 0.286275, 1 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 15 )
-region = Rect2( 0, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 15 )
-region = Rect2( 122, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 15 )
-region = Rect2( 244, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 15 )
-region = Rect2( 366, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 15 )
-region = Rect2( 488, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 15 )
-region = Rect2( 610, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 15 )
-region = Rect2( 732, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 15 )
-region = Rect2( 854, 0, 122, 112 )
-
-[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 12 )
 region = Rect2( 0, 0, 82, 112 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 12 )
 region = Rect2( 82, 0, 82, 112 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 15 )
+region = Rect2( 122, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 15 )
+region = Rect2( 244, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 15 )
+region = Rect2( 366, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 15 )
+region = Rect2( 488, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 15 )
+region = Rect2( 610, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 15 )
+region = Rect2( 732, 0, 122, 112 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 15 )
+region = Rect2( 854, 0, 122, 112 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 12 )
@@ -91,15 +91,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "bird",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "bunny_default",
 "speed": 2.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "bird",
+"speed": 12.0
 }, {
 "frames": [ SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
@@ -322,5 +322,5 @@ script = ExtResource( 14 )
 [node name="Sound" parent="." instance=ExtResource( 11 )]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="ButtonSound" method="_on_choice_selected"]
 [connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="." method="_on_choice_selected"]
+[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="ButtonSound" method="_on_choice_selected"]
