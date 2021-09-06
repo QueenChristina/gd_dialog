@@ -98,7 +98,7 @@ It is easy to create new typewriter-style voices yet there is a lot of nice vari
 
 `pitch_range`: A random ± amount in which the pitch can fluctuate. Bigger pitch range leads to more natural song-like voices while lower pitch range sound more monotonous.
 
-`sound` (optional): The sound to play in the typewriter effect, matching the name of the respective preloaded sound in the `dialogue_voice.gd` in `Dialog.tscn'. If no sound is specified, it uses a default sound.
+`sound` (optional): The sound to play in the typewriter effect, matching the name of the respective preloaded sound in the `dialogue_voice.gd` in `Dialog.tscn`. If no sound is specified, it uses a default sound.
 
 ## FAQ
 ### ❓ Why are you editing dialog via a .json file?
@@ -111,7 +111,7 @@ I do understand editing dialogue via something more visual would be a nice featu
 * [Levrault Dialogue Editor](https://github.com/Levrault/LE-dialogue-editor)
 * [Whiskers](https://github.com/littleMouseGames/whiskers)
 
-Remember that all you really need is a .json file in the right format, so a dialogue designer for any game engine or story format that outputs to the correct format will work -- do not limit yourself to Godot.
+Remember that all you really need is a .json file in the right format, so a dialogue designer for any game engine or story format that outputs to the correct format will work -- do not limit yourself to Godot. In fact, I chose to use a .json file instead of in-game engine specific files as the dialogue data to be compatible with most editors, game engines, and other tools -- if you ever chose to move your game from Godot to another engine, using a Godot-specific dialogue database would've proved to be a massive waste of time and resource.
 
 While it may need some editing to work with my particular dialogue file, it is a good starting point. Please let me know if you would be interested in a visual editor for my dialogue system and I would be happy to look further into developing one suitable to use with this.
 
