@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://github.com/QueenChristina/gd_dialog/blob/main/pics/Banner.png" alt="Banner image">
+</p>
+											  
 # Godot Dialog System
 Open source feature-rich dialogue system in Godot, with an in game example.
 
