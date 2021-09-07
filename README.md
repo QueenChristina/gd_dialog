@@ -68,6 +68,10 @@ Three examples of adding dialog to your game:
 
 You can also create custom dialog in-game by creating dialog text in the format specified above and adding it to `db_dialog`, a database of all dialogs. This will allow for easier creation of dynamic text that might display in-game variables, but will need some set-up to generate the entry.
 
+Use `"actions"` to execute external events, which currently occur at the beginning of the dialog.
+
+`“choices”` sets buttons that players can select, and their selection may lead them to different dialogue by setting `“next”` text_id. (This is branching dialogue.) You can nest actions in this to execute so that it executes only if the player selects this choice.
+
 You can add in commonly used variables in dialog using reserved special characters. For instance, if the player name is John Smith:
 ```
 "text_id": {
@@ -104,6 +108,31 @@ It is easy to create new typewriter-style voices yet there is a lot of nice vari
 
 `sound` (optional): The sound to play in the typewriter effect, matching the name of the respective preloaded sound in the `dialogue_voice.gd` in `Dialog.tscn`. If no sound is specified, it uses a default sound.
 
+## Adding Character Icons
+Navigate to the `Icon` node at `TextBox/Margin/HBox/PanelContainer/Icon` under the `dialog.tscn`. Simple add your animations there. For simplicity, it is currently an AnimatedSprite, so please use frame-by-frame animation such as with a spritesheet. Make sure the name of the animation is the same as the name you use as value under the `"icon"` key in your dialogue .json file.
+
+## Customizing the Dialog System to Fit YOUR Game
+Inevitably, you may want to change the style of the dialog system to fit your game. I'll list a few tips as to how you might change the code best:
+
+### I'm making a visual novel style dialog and want character portraits to have transition animatons (or some other fancy animation)
+Currently, I use an AnimatedSprite as the character icon for simplicity. If you'd like to add transition animations (fade in/out, slide in/out, etc.) simply attach an AnimationPlayer to the icon. Feel free to define an extra "animation" key in dialog_db and add code to start an animation accordingly.
+
+### I want character icons and buttons to be in a different position/location.
+Luckily, this is an incredibly easy change! Godot's [control nodes](https://docs.godotengine.org/en/stable/getting_started/step_by_step/ui_introduction_to_the_ui_system.html) make this even easier. Let's say you want to change icon location to be inside the box on the left, instead of the right. It's as easy as just swapping the order of the textbox and icon nodes -- no code change needed! If you wanted animated icons to be placed under the textbox instead of in it, then you simply move the icon node outside of the control nodes to your preferred location and update the node path in `dialog.gd` to point to the right node.
+
+You can also change the type of containers! For instance, you can use a GridContainer instead of the current VBox if you wanted each choice button to be formatted in a grid instead of a column.
+
+### I want to define my own custom actions to be executed during dialog.
+Navigate to `Gamesrc/Globals.gd` and look at the `execute` function. At the beginning of dialog, it will call this function with each act in actions to execute.
+
+For actions like “shake screen”, “play_anim animation”, and “play_sound sound”, it will emit a signal to make cinematic stuff happen. With some other functions like “player inventory add 1 mochi” or “data set talked_to_NPC true” it will directly modify in game variables. Feel free to edit this code to add any actions you think your game will commonly use during dialogue.
+
+### I want the next indicator to look different when it's the end of the dialog.
+Use an AnimatedSprite and/or AnimationPlayer to change the animation/sprite depending on where you are in the dialog. Navigate to `continue_dialog()` in `dialog.gd` and play animation accordingly. I have commented the code well so you should know which block to put it in.
+
+### I have something else I want to do, but I'm not sure how to do it. Is this possible with your dialog system?
+Anything is possible with a bit of work! :) If you're stuck, though, I'd love to help you learn. Feel free to message me and I'd be happy to take a look when I have time.
+
 ## FAQ
 ### ❓ Why are you editing dialog via a .json file?
 I find .json the fastest to edit and manipulate, since it's basically a text file. No need for graph nodes or other visual UI that gets cluttered when the game grows large. 
@@ -125,7 +154,7 @@ I wanted to show an example of how the dialog system may be used as part of a ga
 The code and files are also well separated and organized -- dialogue-system specific files are under `UI\dialog`. You are free to ignore the other code and peer into that only if you'd like.
 
 ### ❓ Why isn't this a plugin?!?!
-Personally, I found project source files rather than plugins easier to understand and emulate when I just got started learning Godot. Plugins are also harder to fully customize/edit to your game style.
+Personally, I found project source files rather than plugins easier to understand and emulate when I just got started learning Godot. Plugins are also harder to fully customize/edit to your game style, as the code is often hidden and certain options will not be customizable unless the plugin explicitly allows for it.
 
 If you feel a plugin would be more useful, though, please message me and I will consider making one in the future if enough people are interested.
 
