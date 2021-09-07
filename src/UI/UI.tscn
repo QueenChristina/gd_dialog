@@ -133,6 +133,9 @@ margin_bottom = 120.0
 [node name="PanelContainer" parent="DialogSmall/TextBox/Margin/HBox" index="0"]
 custom_styles/panel = SubResource( 3 )
 
+[node name="Icon" parent="DialogSmall/TextBox/Margin/HBox/PanelContainer" index="0"]
+frame = 0
+
 [node name="VBox" parent="DialogSmall/TextBox/Margin/HBox" index="1"]
 margin_right = 510.0
 
@@ -171,6 +174,9 @@ custom_styles/panel = SubResource( 5 )
 
 [node name="PanelContainer" parent="DialogBlack/TextBox/Margin/HBox" index="0"]
 custom_styles/panel = SubResource( 6 )
+
+[node name="Icon" parent="DialogBlack/TextBox/Margin/HBox/PanelContainer" index="0"]
+frame = 0
 
 [node name="Menu" parent="." instance=ExtResource( 2 )]
 visible = false

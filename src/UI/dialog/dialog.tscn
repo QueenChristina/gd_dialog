@@ -247,9 +247,6 @@ animation = "bunny_closed_eyes"
 frame = 1
 playing = true
 
-[node name="Node2D" type="Node2D" parent="TextBox/Margin/HBox/PanelContainer"]
-position = Vector2( 47.1434, 104.389 )
-
 [node name="VBox" type="VBoxContainer" parent="TextBox/Margin/HBox"]
 margin_left = 115.0
 margin_right = 513.0
@@ -322,5 +319,5 @@ script = ExtResource( 14 )
 [node name="Sound" parent="." instance=ExtResource( 11 )]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="." method="_on_choice_selected"]
 [connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="ButtonSound" method="_on_choice_selected"]
+[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="." method="_on_choice_selected"]
