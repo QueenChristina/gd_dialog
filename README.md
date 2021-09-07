@@ -114,30 +114,32 @@ Navigate to the `Icon` node at `TextBox/Margin/HBox/PanelContainer/Icon` under t
 ## Customizing the Dialog System to Fit YOUR Game
 Inevitably, you may want to change the style of the dialog system to fit your game. I'll list a few tips as to how you might change the code best:
 
-### I want my own dialog panel styles.
+### ⦿ I want my own dialog panel styles.
 Navigate to the `dialog.tscn`. Under current PanelContainers, change the panel style used under `custom_styles/panel`. Change the theme of the root Dialog node. You can also add a NinePatchRect as children of the PanelContainers to change dialog panel texture if you prefer.
 
-### I'm making a visual novel style dialog and want character portraits to have transition animatons (or some other fancy animation)
-Currently, I use an AnimatedSprite as the character icon for simplicity. If you'd like to add transition animations (fade in/out, slide in/out, etc.) simply attach an AnimationPlayer to the icon. Feel free to define an extra "animation" key in dialog_db and add code to start an animation accordingly.
+### ⦿ I'm making a visual novel style dialog and want character portraits to have transition animatons (or some other fancy animation)
+Currently, I use an AnimatedSprite as the character icon for simplicity. If you'd like to add transition animations (fade in/out, slide in/out, etc.) simply attach an AnimationPlayer to the icon. Feel free to define an extra "animation" key in the dialogue database and add code to start an animation accordingly.
 
-### I want character icons and buttons to be in a different position/location.
-Luckily, this is an incredibly easy change! Godot's [control nodes](https://docs.godotengine.org/en/stable/getting_started/step_by_step/ui_introduction_to_the_ui_system.html) make this even easier. Let's say you want to change icon location to be inside the box on the left, instead of the right. It's as easy as just swapping the order of the textbox and icon nodes -- no code change needed! If you wanted animated icons to be placed under the textbox instead of in it, then you simply move the icon node outside of the control nodes to your preferred location and update the node path in `dialog.gd` to point to the right node.
+### ⦿ I want character icons and buttons to be in a different position/location.
+Luckily, this is an easy change, especially with Godot's [control nodes](https://docs.godotengine.org/en/stable/getting_started/step_by_step/ui_introduction_to_the_ui_system.html). If you change the position of the character icon, simply move the icon outside of the current container to your preferred location and update the node path in `dialog.gd` to point to the right node. Similarly, move buttons by changing containers.
+
+<!-- Let's say you want to change icon location to be inside the box on the left, instead of the right. It's as easy as just swapping the order of the textbox and icon nodes -- no code change needed! If you wanted animated icons to be placed under the textbox instead of in it, then you simply move the icon node outside of the control nodes to your preferred location and update the node path in `dialog.gd` to point to the right node. -->
 
 You can also change the type of containers! For instance, you can use a GridContainer instead of the current VBox if you wanted each choice button to be formatted in a grid instead of a column.
 
-<p align="center">
+<!-- <p align="center">
 <img src="https://github.com/QueenChristina/gd_dialog/blob/main/pics/ChangeCharacterPortraitDemo.png" width="400" alt="Demonstration of visual-novel style dialog portrait"> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://github.com/QueenChristina/gd_dialog/blob/main/pics/ChangeIconLocationDemo.png" width="400" alt="It is easy to change location of components by moving node order and using containers.">
-</p>
+</p> -->
 
-### I want to define my own custom actions to be executed during dialog.
+### ⦿ I want to define my own custom actions to be executed during dialog.
 Navigate to `Gamesrc/Globals.gd` and look at the `execute` function. At the beginning of dialog, it will call this function with each act in actions to execute.
 
 For actions like “shake screen”, “play_anim animation”, and “play_sound sound”, it will emit a signal to make cinematic stuff happen. With some other functions like “player inventory add 1 mochi” or “data set talked_to_NPC true” it will directly modify in game variables. Feel free to edit this code to add any actions you think your game will commonly use during dialogue.
 
-### I want the next indicator to look different when it's the end of the dialog.
+### ⦿ I want the next indicator to look different when it's the end of the dialog.
 Use an AnimatedSprite and/or AnimationPlayer to change the animation/sprite depending on where you are in the dialog. Navigate to `continue_dialog()` in `dialog.gd` and play animation accordingly. I have commented the code well so you should know which block to put it in.
 
-### I have something else I want to do, but I'm not sure how to do it. Is this possible with your dialog system?
+### ⦿ I have something else I want to do, but I'm not sure how to do it. Is this possible with your dialog system?
 Anything is possible with a bit of work! :) If you're stuck, though, I'd love to help you learn. Feel free to message me and I'd be happy to take a look when I have time.
 
 ## FAQ
