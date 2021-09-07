@@ -114,6 +114,9 @@ Navigate to the `Icon` node at `TextBox/Margin/HBox/PanelContainer/Icon` under t
 ## Customizing the Dialog System to Fit YOUR Game
 Inevitably, you may want to change the style of the dialog system to fit your game. I'll list a few tips as to how you might change the code best:
 
+### I want my own dialog panel styles.
+Navigate to the `dialog.tscn`. Under current PanelContainers, change the panel style used under `custom_styles/panel`. Change the theme of the root Dialog node. You can also add a NinePatchRect as children of the PanelContainers to change dialog panel texture if you prefer.
+
 ### I'm making a visual novel style dialog and want character portraits to have transition animatons (or some other fancy animation)
 Currently, I use an AnimatedSprite as the character icon for simplicity. If you'd like to add transition animations (fade in/out, slide in/out, etc.) simply attach an AnimationPlayer to the icon. Feel free to define an extra "animation" key in dialog_db and add code to start an animation accordingly.
 
@@ -121,6 +124,10 @@ Currently, I use an AnimatedSprite as the character icon for simplicity. If you'
 Luckily, this is an incredibly easy change! Godot's [control nodes](https://docs.godotengine.org/en/stable/getting_started/step_by_step/ui_introduction_to_the_ui_system.html) make this even easier. Let's say you want to change icon location to be inside the box on the left, instead of the right. It's as easy as just swapping the order of the textbox and icon nodes -- no code change needed! If you wanted animated icons to be placed under the textbox instead of in it, then you simply move the icon node outside of the control nodes to your preferred location and update the node path in `dialog.gd` to point to the right node.
 
 You can also change the type of containers! For instance, you can use a GridContainer instead of the current VBox if you wanted each choice button to be formatted in a grid instead of a column.
+
+<p align="center">
+<img src="https://github.com/QueenChristina/gd_dialog/blob/main/pics/ChangeCharacterPortraitDemo.png" width="400" alt="Demonstration of visual-novel style dialog portrait"> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://github.com/QueenChristina/gd_dialog/blob/main/pics/ChangeIconLocationDemo.png" width="400" alt="It is easy to change location of components by moving node order and using containers.">
+</p>
 
 ### I want to define my own custom actions to be executed during dialog.
 Navigate to `Gamesrc/Globals.gd` and look at the `execute` function. At the beginning of dialog, it will call this function with each act in actions to execute.
