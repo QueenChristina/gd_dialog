@@ -10,6 +10,7 @@ Open source feature-rich dialogue system in Godot, with an in game example.
 ## Features
 * Branching dialog
     * Show dialog depending on previous choices
+    * Looping dialog: it is possible to repeat dialog by setting `next` dialog text to be itself
 * Conditional dialog
     * Show dialog and choices depending on in-game variables
 	* Display custom variables in dialog text using special characters
@@ -139,6 +140,13 @@ For actions like “shake screen”, “play_anim animation”, and “play_soun
 ### ⦿ I want the next indicator to look different when it's the end of the dialog.
 Use an AnimatedSprite and/or AnimationPlayer to change the animation/sprite depending on where you are in the dialog. Navigate to `continue_dialog()` in `dialog.gd` and play animation accordingly. I have commented the code well so you should know which block to put it in.
 
+### ⦿ I want the next dialogue text to be determined randomly, given a list of possible texts.
+Take advantage of the conditional text functionality! Navigate to `Gamesrc/Globals.gd` and look at the `is_condition_met` function. You can define new conditions here. Now, imagine if you combine this with a random number generator, and pass in the probability of getting to a certain `next` id in the parameter... :)
+
+### ⦿ I want dialog to loop, but only for a certain number of times.
+You can loop dialog by setting `next` text id to be its own text id.
+To loop a certain number of times, you can take advantage of conditional text (ie. loop only while repeated less than a certain number of times), and setting a `data` variable holding the number of times repeated to increment. Navigate to `Gamesrc/Globals.gd` and modify the `execute` and `is_condition_met` function to make this work.
+
 ### ⦿ I have something else I want to do, but I'm not sure how to do it. Is this possible with your dialog system?
 Anything is possible with a bit of work! :) If you're stuck, though, I'd love to help you learn. Feel free to message me and I'd be happy to take a look when I have time.
 
@@ -188,6 +196,12 @@ Exceptions:
 	* Insight into how Game Endeaver implemented their dialog system gave me insight into how I might execute actions during dialog.
 * [Godot Open Dialogue by J. Sena](https://jsena42.bitbucket.io/god/)
 	* I haven't personally looked at it in-depth, but it seems to have many great features
+* [Godot-Open-Dialogue-Expansion](https://github.com/grahamoverby/Godot-Open-Dialogue-Expansion)
+	* This is a branch of J.Sena's project Godot Open Dialogue and Godot Voice Generator by TNTC-Lab; the ReadMe is a great read
+* [Godot Dialogue Graph with Json](https://insbilla.itch.io/branching-dialogue-graph-godot-with-json)
+	* A JSON based dialogue system supporting branching and looping dialogue. Although simple, this is what kickstarted the basis of my dialogue system.
+* [Godot Tutorial - Dialog Box](https://www.youtube.com/watch?v=xCl1AZINouA)
+	* A tutorial by HeartBeast on getting text to show up letter-by-letter, which I used when I was learning Godot. If you're learning Godot, I wholeheartedly recommend you check their channel out, especially the [Action RPG tutorial](https://www.youtube.com/watch?v=mAbG8Oi-SvQ&list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a)!
 
 ## Support Me ❤️
 If you liked this project, or felt this was useful, please leave me a comment and feedback! It would really make my day.
