@@ -4,6 +4,13 @@ A base class for dialogs, supports text animation via BBcode, button choices,
 branching dialog, optional avatar icon, and optional name.
 
 Dependencies: Global.db_dialog, GameState.talking
+
+Info:
+	Godot Open Dialogue System
+	by Tina Qin (QueenChristina)
+	https://github.com/QueenChristina/gd_dialog
+	License: MIT.
+	Please credit me if you use! Thank you! <3
 """
 # TODO: export and set (1) Panel container text and (2) Panel container name by loading saved panel styles,
 # affectable by theme.

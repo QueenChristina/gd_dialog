@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Animation" id=9]
+resource_name = "DayNightCycle"
+length = 120.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 9.9, 24.1, 32.9, 43, 57.4, 68, 77.8, 87, 95, 100, 120 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.992157, 0.94902, 1 ), Color( 0.941176, 0.823529, 0.698039, 1 ), Color( 0.772549, 0.752941, 0.898039, 1 ), Color( 0.439216, 0.560784, 0.737255, 1 ), Color( 0.227451, 0.388235, 0.533333, 1 ), Color( 0.215686, 0.305882, 0.541176, 1 ), Color( 0.207843, 0.384314, 0.545098, 1 ), Color( 0.498039, 0.67451, 0.952941, 1 ), Color( 0.952941, 0.827451, 1, 1 ), Color( 1, 0.898039, 0.941176, 1 ), Color( 1, 1, 0.976471, 1 ) ]
+}
+
+[node name="DayNightCycle" type="CanvasModulate"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "DayNightCycle"
+playback_speed = 0.2
+anims/DayNightCycle = SubResource( 9 )

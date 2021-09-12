@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Abyss.gd" type="Script" id=1]
-[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/YellowTheme.tres" type="Theme" id=3]
 [ext_resource path="res://UI/GetPlayerName.gd" type="Script" id=4]
 
@@ -61,16 +60,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UI" parent="." instance=ExtResource( 2 )]
-
-[node name="SetName" type="Control" parent="UI"]
+[node name="SetName" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/SetName"]
+[node name="Label" type="Label" parent="CanvasLayer/SetName"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -89.5
@@ -85,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBox" type="HBoxContainer" parent="UI/SetName"]
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/SetName"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -101,7 +98,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerName" type="LineEdit" parent="UI/SetName/HBox"]
+[node name="PlayerName" type="LineEdit" parent="CanvasLayer/SetName/HBox"]
 margin_left = 8.0
 margin_right = 208.0
 margin_bottom = 48.0
@@ -115,7 +112,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="UI/SetName/HBox"]
+[node name="Button" type="Button" parent="CanvasLayer/SetName/HBox"]
 margin_left = 238.0
 margin_right = 358.0
 margin_bottom = 48.0
@@ -128,6 +125,6 @@ anims/Dark = SubResource( 1 )
 anims/FadeIn = SubResource( 2 )
 anims/FadeOut = SubResource( 3 )
 
-[connection signal="submitted_player_name" from="UI/SetName/HBox" to="." method="_on_submitted_player_name"]
-[connection signal="text_entered" from="UI/SetName/HBox/PlayerName" to="UI/SetName/HBox" method="_on_submit_name"]
-[connection signal="pressed" from="UI/SetName/HBox/Button" to="UI/SetName/HBox" method="_on_submit_name"]
+[connection signal="submitted_player_name" from="CanvasLayer/SetName/HBox" to="." method="_on_submitted_player_name"]
+[connection signal="text_entered" from="CanvasLayer/SetName/HBox/PlayerName" to="CanvasLayer/SetName/HBox" method="_on_submit_name"]
+[connection signal="pressed" from="CanvasLayer/SetName/HBox/Button" to="CanvasLayer/SetName/HBox" method="_on_submit_name"]

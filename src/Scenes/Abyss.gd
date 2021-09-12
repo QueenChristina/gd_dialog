@@ -3,7 +3,7 @@ extends Node
 export var talk_id = "welcome"
 
 onready var anim_player = $AnimationPlayer
-onready var name_setter = $UI/SetName
+onready var name_setter = $CanvasLayer/SetName
 
 func _ready():
 	GameState.cutscene = true
