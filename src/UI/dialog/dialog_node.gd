@@ -32,6 +32,8 @@ func _ready():
 # Initializes a dialogNode with given dialog id, curr_id
 #	curr_id - the id of this DialogNode, assumes key matching curr_id exists in Globals.db_dialog
 func init(curr_id):
+	set_default_values()
+	
 	id = curr_id
 	var curr_dialog = Globals.db_dialog[id]
 	if "name" in curr_dialog:
@@ -66,6 +68,19 @@ func init(curr_id):
 	texts = curr_dialog["text"]
 	var text = texts[text_index]
 	printable_text = convert_printable(text)
+	
+func set_default_values():
+	id = ""				# Current dialog id
+	next_id = "end"		# Next dialog id following this. Defaults to end dialog.
+	speaker = "" 			# The name displayed in name box (optional)
+	voice = "default" 		# Voice key should match key in voices database, sound of dialog. Assumes a default voice exits.
+	icon = "none"	# Icon expression, should match animation name of Icon to show (optional)
+	texts = []  			# Array of text strings shown in succcession in textbox
+	text_index = 0	# Texts[text_index] is the current text string to display in textbox
+	printable_text = ""	# Actual displayed text in text box; it replaces special characters accordingly
+	pause_counts = {} 		# Counts number of PAUSE_CHAR at given printable char index.
+	choices = []			# Choices player can choose in dialog. (optional)
+	action = []
 	
 # Attemps to advance to the next text index.
 # Returns whether we were able to set next text index.
@@ -112,6 +127,7 @@ func convert_printable(text):
 		printable_stripped_bbcode.erase(curr_pause_index, PAUSE_CHAR.length())
 	
 	printable = printable.replace(PAUSE_CHAR, "")
+	printable_label.queue_free()
 	return printable
 
 # Returns for how many counts to pause just before the specified index.

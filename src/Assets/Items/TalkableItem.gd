@@ -37,5 +37,6 @@ func _on_dialog_ended(_text_id):
 	# after dialog ends, but without accidentally triggering it on last click, 
 	# setting to be interactable again only if player is still in area.
 	yield(get_tree().create_timer(0.5), "timeout")
+	
 	if is_in_interact_area:
 		interactable = true

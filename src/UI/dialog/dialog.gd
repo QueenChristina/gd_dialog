@@ -54,6 +54,9 @@ func _ready():
 	dialog_UI.hide()
 	text_dialog.set_visible_characters(0)
 	#start_dialog("text_id")
+	
+	curr_dialog_node = DialogNode.new()
+	self.add_child(curr_dialog_node)
 
 func _input(event):
 	if talking and event.is_action_pressed("confirm"):
@@ -71,14 +74,20 @@ func end_dialog():
 	talking = false
 	dialog_UI.hide()
 	
+## Reduce on number of unneeded nodes and orphans
+#func free_dialog_node():
+#	if curr_dialog_node != null:
+#		curr_dialog_node.queue_free()
+#		print("Freed an orphan")
+	
 # Set curr_dialog_node by text id, the current dialog to display.
 func set_curr(id):
 	if id == Globals.END_DIALOG_ID:
 		end_dialog()
 		emit_signal("dialog_ended", id) # FIX: should be id before end.
 	else:
-		# Set current dialogNode
-		curr_dialog_node = DialogNode.new()
+		# Set current dialogNode, and free old to prevent orphaned nodes
+#		curr_dialog_node = DialogNode.new()
 		curr_dialog_node.init(id)
 		# Set name box 
 		text_name.text = curr_dialog_node.speaker
