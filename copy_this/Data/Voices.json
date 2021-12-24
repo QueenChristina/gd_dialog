@@ -1,0 +1,4 @@
+{
+"default" : {"rate": 4, "pitch": 1, "pitch_range": 0.2},
+"voice2" : {"rate" : 4, "sound" : "res://Audio/boop.wav", "pitch": 1, "pitch_range" : 0.2 },
+}

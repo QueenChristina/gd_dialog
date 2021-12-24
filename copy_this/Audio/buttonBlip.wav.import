@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/buttonBlip.wav-ea3f5e0284d573deeda49e0b52ee5fa4.sample"
+
+[deps]
+
+source_file="res://dialog_sys/Audio/buttonBlip.wav"
+dest_files=[ "res://.import/buttonBlip.wav-ea3f5e0284d573deeda49e0b52ee5fa4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

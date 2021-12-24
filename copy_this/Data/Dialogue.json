@@ -1,0 +1,77 @@
+{
+"id" : {
+	"name": "", 
+	"icon": "", 
+	"voice": "",
+	"text": [""], 
+	"choices": [ 
+			{"text" : "", "next" : "", "action": [], "show_only_if": ""},
+			{"text" : "", "next" : "", "action": [], "show_only_if": ""}
+		],
+	"action" : [],
+	"next": [{"id": "", "if": ""}, {"id": "", "if": ""}, "default_id"],
+	},
+
+"": {
+	"name": "",
+	"icon": "none",
+	"voice" : "default",
+	"text" : ["ERROR. You may have set an incorrect text id."],
+	"choices" : [],
+	"action" : [],
+	"next": "end"
+	},
+
+"test": {
+	"name": "Name",
+	"icon": "default",
+	"voice" : "default",
+	"text" : ["Hi, testing dialogue system...", "This message will repeat until working. Can you hear me?"],
+	"choices" : [
+		{"text" : "Yes.", "next" : "test2"},
+		{"text" : "No.", "next" : "test"} 
+	],
+	"action": ["set has_text_talked true"],
+	"next": "end"
+	},
+"test2": {
+	"name": "Name",
+	"voice" : "voice2",
+	"text" : ["Testing the custom voice works. T|e|s|t|i|n|g stuttering works. Testing custom variables/name in text works: &.", "Testing conditions and actions work."],
+	"choices" : [
+		{"text" : "Yes.", "action": ["set talked_yes true"], "next" : "test3"},
+		{"text" : "No.", "next" : "test"},
+		{"text" : "If you can see me, it works.", "action": ["set talked_works true"], "next" : "test3", "show_only_if": "data has_text_talked equal true"}, 
+		{"text" : "If you can see me, it doesn't work.", "next" : "end", "show_only_if": "data has_text_talked not_equal true"}, 
+	],
+	"next": "end"
+	},
+"test3": {
+	"text" : ["Testing no name works. Testing action on button pressed works."],
+	"choices" : [
+			{"text" : "If you can see me, you chose 'Yes.' previously.", "next" : "end", "show_only_if": "data talked_yes equal true"}, 
+			{"text" : "If you can see me, you chose 'If you can see me, it works.' previously.", "next" : "end", "show_only_if": "data talked_works equal true"}, 
+		],
+	"next": "end"
+	},
+
+"minimal_example": {
+	"text": ["This minimal text dialog node uses default values, and will end shortly."]
+	},
+
+"superfluous_example": {
+	"name": "Name",
+	"icon": "Must match icon animation name",
+	"voice" : "default",
+	"text": ["Required value.", "Note that advanced custom actions and conditions require modifying the code."], 
+	"choices": [
+		{"text" : "Yes.", "next" : "end", "action": ["play_anim anim_name", "set variable str_value"], "show_only_if": "data var_key equal str_value" }, 
+		{"text" : "Yes.", "next" : "not end id", "show_only_if": "data var_key not_equal str_value", "self_comment": "janky way to say: different next id by choice depending on condition" }, 
+		{"text" : "You haven't talked to me before.", "next" : "end", "action": ["set has_talked true"]},
+		{"text" : "I see you've talked to me before.", "next": "end", "show_only_if" : "data has_talked is true"},
+		{"text" : "No.", "next" : "end"},
+		], 
+	"action": ["set has_text_talked true"],
+	"next": [{"id": "end", "if": "data key equal value"}, {"id": "other_id", "if": "player coins greater 155"}, "default_id, must always be last and a string"],
+	},
+}
