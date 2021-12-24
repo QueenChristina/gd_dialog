@@ -244,6 +244,7 @@ __meta__ = {
 position = Vector2( 45, 55 )
 frames = SubResource( 16 )
 animation = "bunny_closed_eyes"
+frame = 1
 playing = true
 
 [node name="VBox" type="VBoxContainer" parent="TextBox/Margin/HBox"]
@@ -318,5 +319,5 @@ script = ExtResource( 14 )
 [node name="Sound" parent="." instance=ExtResource( 11 )]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="ButtonSound" method="_on_choice_selected"]
 [connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="." method="_on_choice_selected"]
+[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="ButtonSound" method="_on_choice_selected"]

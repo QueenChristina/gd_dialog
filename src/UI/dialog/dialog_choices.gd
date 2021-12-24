@@ -55,8 +55,10 @@ func set_buttons(choices):
 		print("WARNING: No choices set. Check your conditionals.")
 
 func _on_button_pressed(next_id, action):
-	emit_signal("choice_selected", next_id)
 	# Execute actions associated with choosing button choice.
+	# Make sure to execute actions BEFORE moving onto next dialog/emitting signal that choice was selected
 	if action:
 		for act in action:
 			Globals.execute(act)
+	emit_signal("choice_selected", next_id)
+
