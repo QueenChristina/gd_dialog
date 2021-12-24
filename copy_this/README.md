@@ -24,7 +24,7 @@ See `res://GameSrc/Globals.gd` for `db_dialog` and `db_voices`, where the voice 
 Navigate to these files:
 * Use custom themes and panel styles to change dialog visual style under `res://UI/UI.tscn` and `res://UI/dialog/dialog.tscn`
 * `res://GameSrc/Globals.gd`, modify `execute(act)` to define custom actions
-* `res://GameSrc/Globals.gd`, modify `is_condition_met(condition):` to define custom conditions
+* `res://GameSrc/Globals.gd`, modify `is_condition_met(condition)` to define custom conditions
 * `res://UI/dialog/dialog_node.gd`, modify `convert_printable(text)` and use `printable.replace` to define custom variables to show in dialog text
 * `res://GameSrc/GameState.gd`, you can custom define when the game is in a paused state, and how to react to pausing (such as during when dialog plays)
 Use `GameState.is_paused()` to detect whether the game is currently in a paused state (such as if dialog is currently playing) and custom define how your game should react to a paused state.
@@ -34,3 +34,5 @@ Connect to GameState's pause and unpause signals to react to game state changes.
 If you liked this project, or felt this was useful, please leave me a comment and feedback! It would really make my day.
 
 And, if you ever make a game with this, I'd love a know! Please send me a link of your game so I can support it! <3
+
+Sharing about my dialogue system over social media and getting the word out there would help me immensely! Thank you!
