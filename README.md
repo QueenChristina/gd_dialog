@@ -182,6 +182,7 @@ The project is licensed under MIT license. Please feel free to use for your game
 
 ```
 Dialog system by Qin Tina
+> linktr.ee (https://linktr.ee/qintina)
 > Github (https://github.com/QueenChristina)
 > Twitter @QuailTina (https://twitter.com/QuailTina)
 > Youtube @Bok Bok Chicken (https://www.youtube.com/channel/UCojtnxNTvUINEd7-zDUWDfg)
