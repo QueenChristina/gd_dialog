@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/dialog/dialog.gd" type="Script" id=4]
 [ext_resource path="res://UI/dialog/dialog_node.gd" type="Script" id=5]
-[ext_resource path="res://Assets/TestIcon.png" type="Texture" id=6]
+[ext_resource path="res://assets/TestIcon.png" type="Texture" id=6]
 [ext_resource path="res://UI/dialog/spacer_container.gd" type="Script" id=8]
 [ext_resource path="res://UI/dialog/animated_sprite_container.gd" type="Script" id=9]
 [ext_resource path="res://UI/dialog/dialog_choices.gd" type="Script" id=10]
@@ -214,7 +214,7 @@ hoveringSound = "res://Audio/buttonBoop.wav"
 
 [node name="Sound" parent="." instance=ExtResource( 11 )]
 stream = null
+default = "res://audio/boop.wav"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="ButtonSound" method="_on_choice_selected"]
 [connection signal="choice_selected" from="TextBox/Margin/HBox/VBox/Choices" to="." method="_on_choice_selected"]

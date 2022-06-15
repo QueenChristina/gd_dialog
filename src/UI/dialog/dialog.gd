@@ -29,6 +29,11 @@ export var text_speed := 0.03 	# Text speed - the seconds to wait until next cha
 	# TODO: Use setget and global variables on text_speed and pause_time instead so all dialogInstances
 	# have the same text_speed setting. HOWEVER, you may also think about setting time based on speaker.
 
+
+# TODO 2/25/22: there are cyclic dependency issues with using this as child node has same
+# name as class -- instead, curr_dialog_node  = $DialogNode (no new nodes made!!!!)
+# TODO 2/25/22: Instead use of input action "confirm", use Godot's default input map -- less confusion.
+# TODO 2/25/22: Emit signal with starting id text index when end dialogue, not "end".
 var curr_dialog_node : DialogNode = null
 
 var talking = false # NOTE: both a GameState.talking and local talking state is set.
@@ -175,7 +180,8 @@ func _on_choice_selected(id):
 
 #======================================Text===================================
 func _on_timer_timeout():
-	var force_voice = false if text_dialog.visible_characters == 0 else true
+	# TODO: updated / fixed this 2/26/22, voice rate was incorrectly forced every itnerval before
+	var force_voice = true if text_dialog.visible_characters == 0 else false
 	if text_not_all_visible():
 		# Pause if hit PAUSE_CHAR just before next visible character.
 		if curr_dialog_node.pause_count_at(text_dialog.visible_characters) != 0:

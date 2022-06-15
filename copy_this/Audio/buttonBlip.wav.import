@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/buttonBlip.wav-ea3f5e0284d573deeda49e0b52ee5fa4.sample"
+path="res://.import/buttonBlip.wav-6ed2df825731349db1cca1dbfe5e34e6.sample"
 
 [deps]
 
-source_file="res://dialog_sys/Audio/buttonBlip.wav"
-dest_files=[ "res://.import/buttonBlip.wav-ea3f5e0284d573deeda49e0b52ee5fa4.sample" ]
+source_file="res://audio/buttonBlip.wav"
+dest_files=[ "res://.import/buttonBlip.wav-6ed2df825731349db1cca1dbfe5e34e6.sample" ]
 
 [params]
 

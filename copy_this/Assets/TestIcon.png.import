@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TestIcon.png-3e8669a2e377404831c8959c9b1509ed.stex"
+path="res://.import/TestIcon.png-e015b638e35fa7c8af29f269556215d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_sys/Assets/TestIcon.png"
-dest_files=[ "res://.import/TestIcon.png-3e8669a2e377404831c8959c9b1509ed.stex" ]
+source_file="res://assets/TestIcon.png"
+dest_files=[ "res://.import/TestIcon.png-e015b638e35fa7c8af29f269556215d5.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

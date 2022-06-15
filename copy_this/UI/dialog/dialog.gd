@@ -29,8 +29,6 @@ export var text_speed := 0.03 	# Text speed - the seconds to wait until next cha
 	# TODO: Use setget and global variables on text_speed and pause_time instead so all dialogInstances
 	# have the same text_speed setting. HOWEVER, you may also think about setting time based on speaker.
 
-var curr_dialog_node : DialogNode = null
-
 var talking = false # NOTE: both a GameState.talking and local talking state is set.
 # DO NOT CONFUSE THEM. Both are necessary - GameState.talking to inform whether 
 # a dialog is currenly shown. local talking to know whether THIS particular
@@ -48,18 +46,15 @@ onready var curr_voice := $Sound
 onready var timer := $Timer
 onready var choices := $TextBox/Margin/HBox/VBox/Choices
 onready var next_icon := $NextIcon
+onready var curr_dialog_node = $DialogNode
 
 func _ready():
 	_on_set_text_speed(text_speed)
 	dialog_UI.hide()
 	text_dialog.set_visible_characters(0)
-	#start_dialog("text_id")
-	
-	curr_dialog_node = DialogNode.new()
-	self.add_child(curr_dialog_node)
 
 func _input(event):
-	if talking and event.is_action_pressed("confirm"):
+	if talking and event.is_action_pressed("ui_accept"):
 		continue_dialog()
 
 func start_dialog(first_id):
@@ -126,7 +121,7 @@ func continue_dialog():
 	else:
 		# Case 2: text was done printing, so we want to go to next portion of dialog
 		if !choices.visible: # Do not set next text if selecting choice.
-			var can_move_to_next_id := !curr_dialog_node.set_next_text_index()
+			var can_move_to_next_id = !curr_dialog_node.set_next_text_index()
 			if !can_move_to_next_id:
 				# - (A) We can move to next text_index 
 				text_dialog.bbcode_text = curr_dialog_node.printable_text

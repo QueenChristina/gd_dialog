@@ -11,7 +11,9 @@ and make a sound each syllable, or voice each letter and make a sound based on t
 
 Dependencies: Global.db_voices
 """
-extends AudioStreamPlayer2D
+# TODO: 2.27.22 fixed, changed from audioStremPlayer2D to normal, so headphones should now work w audio
+# BE SURE to change this in copy_this
+extends AudioStreamPlayer
 class_name DialogSound
 
 var default = preload("res://Audio/boop.wav")

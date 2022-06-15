@@ -11,16 +11,16 @@ and make a sound each syllable, or voice each letter and make a sound based on t
 
 Dependencies: Global.db_voices
 """
-extends AudioStreamPlayer2D
+extends AudioStreamPlayer
 class_name DialogSound
 
 # TODO: define yourself the voice variable name and preload audio here,
 # matching the sound value in Voices.json, or just specify
 # the path to load audio in Voices.json
-var default = preload("res://Audio/boop.wav")
+export(String, FILE) var default
 
 var voice_id := ""
-var sound = default
+var sound
 var rate := 15			# Letters + 1 to display before emitting a sound; the rate of speech.
 var pitch := 1.2			# Pitch effect applied to base voice sound stream.
 var pitch_range := 0.25	# Range of pitch of voice.
@@ -28,7 +28,7 @@ var letters_played := 0	# Tracks letters played so far.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sound = load(default)
 
 func init(id):
 	voice_id = id
@@ -49,7 +49,7 @@ func init(id):
 					"define as preloaded file with matching name in dialog_voice.gd")
 			sound = get(voice_info["sound"])	# Convert string to its sound
 	else:
-		sound = default
+		sound = load(default)
 	self.stream = sound
 
 func voice(force_sound = false):

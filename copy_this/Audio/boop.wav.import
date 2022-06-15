@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/boop.wav-a500f24d9133677f7005bd4c60c3b6b4.sample"
+path="res://.import/boop.wav-2cf9316475e69c1e8ea0e31c9cba1c3f.sample"
 
 [deps]
 
-source_file="res://dialog_sys/Audio/boop.wav"
-dest_files=[ "res://.import/boop.wav-a500f24d9133677f7005bd4c60c3b6b4.sample" ]
+source_file="res://audio/boop.wav"
+dest_files=[ "res://.import/boop.wav-2cf9316475e69c1e8ea0e31c9cba1c3f.sample" ]
 
 [params]
 
