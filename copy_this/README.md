@@ -41,3 +41,5 @@ Add "Left mouse button click" to ui_accept under input map to proceed dialogue w
 If you liked this project, or felt this was useful, please leave me a comment and feedback! It would really make my day.
 
 And, if you ever make a game with this, I'd love a know! Please send me a link of your game so I can support it! <3
+
+Sharing about my dialogue system over social media and getting the word out there would help me immensely! Thank you!

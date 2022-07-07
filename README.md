@@ -35,6 +35,8 @@ Open source feature-rich dialogue system in Godot, with an in game example.
 Includes an example of how the dialog system might work with a top-down RPG. However, it is easily used for other styles of games as well with minor to no modification, eg. visual novels, etc.
 
 ## Getting Started with Dialog
+Refer to and download [the `copy_this` folder](https://github.com/QueenChristina/gd_dialog/tree/main/copy_this) on how to setup the dialogue system for a new project.
+
 Navigate to `UI\dialog\dialog.tscn` to see how the dialog system works.
 
 You add dialog to your game via .json file, currently stored in `Data\Dialogue.json`.
@@ -180,6 +182,7 @@ The project is licensed under MIT license. Please feel free to use for your game
 
 ```
 Dialog system by Qin Tina
+> linktr.ee (https://linktr.ee/qintina)
 > Github (https://github.com/QueenChristina)
 > Twitter @QuailTina (https://twitter.com/QuailTina)
 > Youtube @Bok Bok Chicken (https://www.youtube.com/channel/UCojtnxNTvUINEd7-zDUWDfg)
@@ -205,5 +208,6 @@ Exceptions:
 
 ## Support Me ❤️
 If you liked this project, or felt this was useful, please leave me a comment and feedback! It would really make my day.
+Sharing about my dialogue system over social media and getting the word out there would help me immensely too! Thank you!
 
 And, if you ever make a game with this, I'd love a know! Please send me a link of your game so I can support it! <3
